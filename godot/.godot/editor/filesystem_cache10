@@ -1,0 +1,18 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1752494561
+Dtc.gdextension::GDExtension/GDExtension::8424656922929724809::1752493624::0::1::::<><><>0<>0<><>::
+icon.webp::CompressedTexture2D/CompressedTexture2D::27118964165343846::1744386698::1752429703::1::::<><><>0<>0<>2765b228073266418cb0e013965e5088<>res://.godot/imported/icon.webp-e94f9a68b0f625a567a797079e4d325f.ctex::
+main.tscn::PackedScene::2030349084691490264::1752494543::0::1::::<><><>0<>0<><>::
+player.tscn::PackedScene::7601122006863472152::1752494486::0::1::::<><><>0<>0<><>::uid://nev7b6ohgeo::::res://icon.webp
+::res://art/::1752429703
+body.tres::StandardMaterial3D/StandardMaterial3D::-1::1744386698::0::1::::<><><>0<>0<><>::
+eye.tres::StandardMaterial3D/StandardMaterial3D::-1::1744386698::0::1::::<><><>0<>0<><>::
+House In a Forest Loop.ogg::AudioStreamOggVorbis/AudioStreamOggVorbis::6912470962729766485::1744386698::1752429703::1::::<><><>0<>0<>ca11219f684f6cd2af90d4e6cdaead58<>res://.godot/imported/House In a Forest Loop.ogg-1a6a72ae843ad792b7039931227e8d50.oggvorbisstr::
+mob.glb::PackedScene/PackedScene::2952940687663745631::1744386698::1752429703::1::::<><><>0<>0<>a780a1250ec97030b0168a6a0460c3f3<>res://.godot/imported/mob.glb-3afb43c03b9d1598b6af5154e2543eac.scn::
+mob_body.tres::StandardMaterial3D/StandardMaterial3D::-1::1744386698::0::1::::<><><>0<>0<><>::
+mob_eye.tres::StandardMaterial3D/StandardMaterial3D::-1::1744386698::0::1::::<><><>0<>0<><>::
+player.glb::PackedScene/PackedScene::8964461739428881931::1744386698::1752429703::1::::<><><>0<>0<>888faf6ae4281eadd09c6bedcc72b9b7<>res://.godot/imported/player.glb-08dcfb373480a049995065542e37637b.scn::
+pupil.tres::StandardMaterial3D/StandardMaterial3D::-1::1744386698::0::1::::<><><>0<>0<><>::
+::res://fonts/::1752429703
+LICENSE.txt::TextFile/TextFile::-1::1744386698::0::1::::<><><>0<>0<><>::
+Montserrat-Medium.ttf::FontFile/FontFile::6505293508080888906::1744386698::1752429703::1::::<><><>0<>0<>07233739ee8ed56ec1cb0f04a4ff2983<>res://.godot/imported/Montserrat-Medium.ttf-e832861e4ad4110e172112dc430c04b0.fontdata::
