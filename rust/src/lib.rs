@@ -1,6 +1,6 @@
 use std::f64::consts::PI;
-use std::str::FromStr;
 
+use godot::classes::AnimationPlayer;
 use godot::classes::CharacterBody3D;
 use godot::classes::ColorRect;
 use godot::classes::ICharacterBody3D;
@@ -66,10 +66,15 @@ impl ICharacterBody3D for Player {
             direction.z -= 1.;
         }
 
+        let mut anim_player = self.base_mut().get_node_as::<AnimationPlayer>("AnimationPlayer");
         if direction != Vector3::ZERO {
             direction = direction.normalized();
             let mut pivot = self.base().get_node_as::<Node3D>("Pivot");
             pivot.set_basis(Basis::looking_at(direction, Vector3::UP, false));
+
+            anim_player.set_speed_scale(4.);
+        } else {
+            anim_player.set_speed_scale(1.);
         }
 
         self.target_velocity.x = direction.x * self.speed;
@@ -106,6 +111,11 @@ impl ICharacterBody3D for Player {
                 }
             }
         }
+
+        let mut pivot = self.base_mut().get_node_as::<Node3D>("Pivot");
+        let mut next_rotation = pivot.get_rotation();
+        next_rotation.x = (PI / 6. * self.base().get_velocity().y as f64 / self.jump_impulse.as_f64()) as f32;
+        pivot.set_rotation(next_rotation);
     }
 }
 
@@ -176,6 +186,9 @@ impl Mob {
             .rotated(Vector3::UP, self.base().get_rotation().y);
 
         self.base_mut().set_velocity(velocity);
+        let mut anim_player = self.base_mut().get_node_as::<AnimationPlayer>("AnimationPlayer");
+        anim_player.set_speed_scale((random_speed / self.min_speed as i64) as f32);
+
     }
 
     #[func]
