@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://36rs2a0m1m8w"]
+[gd_scene load_steps=10 format=3 uid="uid://36rs2a0m1m8w"]
 
 [ext_resource type="PackedScene" uid="uid://csf6bixipdo0r" path="res://mob.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dgkbmsp3xlt3m" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="FontFile" uid="uid://cyxhh7ddkn62q" path="res://fonts/Montserrat-Medium.ttf" id="3_h2yge"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
 size = Vector3(60, 2, 60)
@@ -23,11 +24,17 @@ _data = {
 }
 point_count = 4
 
+[sub_resource type="Theme" id="Theme_1bvp3"]
+default_font = ExtResource("3_h2yge")
+default_font_size = 22
+
 [node name="Main" type="Main"]
 mob_scene = ExtResource("1_0xm2m")
 
 [node name="Ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("BoxShape3D_7dm0k")
@@ -81,4 +88,47 @@ transform = Transform3D(0.00139137, 0, -0.999999, 0, 1, 0, 0.999999, 0, 0.001391
 wait_time = 0.5
 autostart = true
 
+[node name="UserInterface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_1bvp3")
+
+[node name="ScoreLabel" type="ScoreLabel" parent="UserInterface"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 39.0
+offset_right = 139.0
+offset_bottom = 67.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Score: 0"
+
+[node name="Retry" type="ColorRect" parent="UserInterface"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.309804, 0.309804, 0.309804, 0.333333)
+
+[node name="Label" type="Label" parent="UserInterface/Retry"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.5
+offset_top = -14.0
+offset_right = 107.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press Enter to retry"
+
+[connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
